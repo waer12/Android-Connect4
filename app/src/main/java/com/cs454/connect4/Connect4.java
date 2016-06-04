@@ -2,6 +2,8 @@ package com.cs454.connect4;
 
 public class Connect4{
 
+    //drawing is taken care of by the view
+    @Deprecated
     public String[][] createPattern(){
         String[][] f = new String[7][15];
         for (int i = 0; i < f.length; i++){
