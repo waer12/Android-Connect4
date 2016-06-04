@@ -120,21 +120,28 @@ public class Connect4{
     }
 
     class Node{
-        private Node up, down, left, right, upleft, upright, downleft, downright;
+        public Node up, down, left, right, upleft, upright, downleft, downright;
+        String color;
 
         public Node(){
             up = down = left = right = upleft = upright = downleft = downright = null;
+            color = "";
         }
     }
 
     class Graph{
         private int NUM_COLUMNS = 7;
         private int NUM_ROWS = 6;
-        private Node[] nodes = null;
+        private Node[][] nodes = null;
+        private ArrayList<Node> redNodes = null;
+        private ArrayList<Node> yellowNodes = null;
         private int[] emptySpaces = null;
 
         public Graph(){
-
+            nodes = new Node[NUM_COLUMNS][NUM_ROWS];
+            emptySpaces = new int[NUM_COLUMNS];
+            redNodes = new ArrayList<Node>();
+            yellowNodes = new ArrayList<Node>();
         }
 
         //Returns true of piece successfully dropped
