@@ -1,5 +1,8 @@
 package com.cs454.connect4;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Connect4{
 
     //drawing is taken care of by the view
@@ -114,5 +117,57 @@ public class Connect4{
             }
         }
         return null;
+    }
+
+    class Node{
+        private Node up, down, left, right, upleft, upright, downleft, downright;
+
+        public Node(){
+            up = down = left = right = upleft = upright = downleft = downright = null;
+        }
+    }
+
+    class Graph{
+        private int NUM_COLUMNS = 7;
+        private int NUM_ROWS = 6;
+        private Node[] nodes = null;
+        private int[] emptySpaces = null;
+
+        public Graph(){
+
+        }
+
+        //Returns true of piece successfully dropped
+        //False if that column is full
+        public boolean dropYellow(int columnIndex){
+            return false;
+        }
+
+        //Returns true of piece successfully dropped
+        //False if that column is full
+        public boolean dropRed(int columnIndex){
+            return false;
+        }
+
+        //Checks to see if red/yellow has won
+        //returns "red" if red won
+        //returns "yellow" if yellow won
+        //returns "" if no winners
+        public String checkWinner(){
+            return "";
+        }
+
+        //Returns an ArrayList of possible board positions from current board
+        private ArrayList<Graph> getPossibleGraphs(){
+            return null;
+        }
+
+        //Returns the heuristic value of the board from the perspective of player("red" or "yellow")
+        //i.e. if the player("red") has 4, returns Integer.MAX_VALUE
+        //but if player("yellow") and red has connect 4, returns Integer.MIN_VALUE
+        private int heuristic(String player)
+        {
+            return Integer.MIN_VALUE;
+        }
     }
 }
