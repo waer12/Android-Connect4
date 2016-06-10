@@ -130,11 +130,18 @@ public class Connect4{
     }
 
     class Graph{
+        /**
+         * |0.3 | | | |
+         * |0.2 | | | |
+         * |0.1 | | | |
+         * |0.0 |1.0 |2.0 |3.0 |
+         */
         private int NUM_COLUMNS = 7;
         private int NUM_ROWS = 6;
         private Node[][] nodes = null;
         private ArrayList<Node> redNodes = null;
         private ArrayList<Node> yellowNodes = null;
+        //keeps track of the 'fullness' of each column
         private int[] emptySpaces = null;
 
         public Graph(){
@@ -147,7 +154,23 @@ public class Connect4{
         //Returns true of piece successfully dropped
         //False if that column is full
         public boolean dropYellow(int columnIndex){
-            return false;
+            //if that column is full
+            if(emptySpaces[columnIndex] >= NUM_ROWS || columnIndex < 0)
+                return false;
+            Node newNode = new Node();
+            newNode.color = "yellow";
+            nodes[columnIndex][emptySpaces[columnIndex]] = newNode;
+            //attach the node to adjacent nodes of same color
+            //up
+            //down
+            //left
+            //right
+            //upleft
+            //upright
+            //downleft
+            //downright
+
+            return true;
         }
 
         //Returns true of piece successfully dropped
