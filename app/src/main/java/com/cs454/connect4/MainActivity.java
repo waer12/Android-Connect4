@@ -11,9 +11,14 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     Connect4 connect4;
     String[][] pattern;
+    ArrayList<Point> emptySpaces = new ArrayList<>();
+    boolean gameOver = false;
     int playerTurn = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         connect4 = new Connect4();
         pattern = connect4.createPattern();
+        emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+
         String drawnPattern = connect4.printPattern(pattern);
         TextView grid = (TextView) findViewById(R.id.gameGrid);
         grid.setText(drawnPattern);
@@ -49,6 +56,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void playConnectFourAgainstComputer()
+    {
+        Random random = new Random();
+
+        playerTurn = random.nextInt(3);
+        int gameColumn;
+
+        if(playerTurn == 2)//Computer goes first
+        {
+            Point point = new Point(random.nextInt(connect4.getRowAmount()), random.nextInt(connect4.getColumnAmount()));
+            gameColumn = point.y;
+        }
+
+        while(!gameOver)
+        {
+
+        }
     }
 
     public void button0(View view){
