@@ -1,10 +1,15 @@
 package com.cs454.connect4;
 
+
 import android.widget.ImageView;
+
 import java.util.ArrayList;
 
 public class Connect4{
     ArrayList<ImageView> images;
+    public static final int CONNECT_FOUR_ROWS = 7;
+    public static final int CONNECT_FOUR_COLUMNS = 15;
+
     public Connect4(ArrayList<ImageView> images){
         this.images = images;
     }
@@ -35,7 +40,7 @@ public class Connect4{
         }
     }
 
-    public void resetGame(String[][] f){
+    public void resetGame(String[][] f) {
         for (int i = 0; i < f.length; i++) {
             for (int j = 0; j < f[i].length; j++) {
                 int index = j + (i * 7);
@@ -120,5 +125,29 @@ public class Connect4{
             }
         }
         return null;
+    }
+
+    public int getRowAmount(){
+        return CONNECT_FOUR_ROWS;
+    }
+
+    public int getColumnAmount(){
+        return CONNECT_FOUR_COLUMNS;
+    }
+
+    public ArrayList<Point> checkAmountOfAvailableSpaces(String[][] board) {
+        ArrayList<Point> emptySpace = new ArrayList<>();
+        for(int row = 0; row < board.length; row++)
+        {
+            for(int column = 0; column < board.length; column++)
+            {
+                if(board[row][column] == " ")
+                {
+                    Point point = new Point(row, column);
+                    emptySpace.add(point);
+                }
+            }
+        }
+        return emptySpace;
     }
 }
