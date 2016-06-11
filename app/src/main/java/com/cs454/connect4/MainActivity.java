@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addListenerOnButton(){
+    public void addListenerOnButton() {
         ImageButton pvp = (ImageButton) findViewById(R.id.pvpButton);
         final Intent intent = new Intent(this, Playervsplayer.class);
         pvp.setOnClickListener(new OnClickListener() {
@@ -53,5 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }
