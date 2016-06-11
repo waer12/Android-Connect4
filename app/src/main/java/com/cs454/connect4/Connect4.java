@@ -2,6 +2,7 @@ package com.cs454.connect4;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Connect4{
 
@@ -120,12 +121,11 @@ public class Connect4{
     }
 
     class Node{
-        public Node up, down, left, right, upleft, upright, downleft, downright;
-        String color;
-
-        public Node(){
-            up = down = left = right = upleft = upright = downleft = downright = null;
-            color = "";
+        public int[] position;
+        public String color;
+        Node(int[] pos, String color){
+            this.position = pos;
+            this.color = color;
         }
     }
 
@@ -138,17 +138,18 @@ public class Connect4{
          */
         private int NUM_COLUMNS = 7;
         private int NUM_ROWS = 6;
+        //fast access to existing nodes
         private Node[][] nodes = null;
-        private ArrayList<Node> redNodes = null;
-        private ArrayList<Node> yellowNodes = null;
+        private HashMap<Node, ArrayList<Node>> redNodes = null;
+        private HashMap<Node, ArrayList<Node>> yellowNodes = null;
         //keeps track of the 'fullness' of each column
         private int[] emptySpaces = null;
 
         public Graph(){
             nodes = new Node[NUM_COLUMNS][NUM_ROWS];
             emptySpaces = new int[NUM_COLUMNS];
-            redNodes = new ArrayList<Node>();
-            yellowNodes = new ArrayList<Node>();
+            redNodes = new HashMap<>();
+            yellowNodes = new HashMap<>();
         }
 
         //Returns true of piece successfully dropped
@@ -157,19 +158,60 @@ public class Connect4{
             //if that column is full
             if(emptySpaces[columnIndex] >= NUM_ROWS || columnIndex < 0)
                 return false;
-            Node newNode = new Node();
-            newNode.color = "yellow";
+            int[] position = new int[]{columnIndex, emptySpaces[columnIndex]};
+            Node newNode = new Node(position, "yellow");
             nodes[columnIndex][emptySpaces[columnIndex]] = newNode;
+            yellowNodes.put(newNode, new ArrayList<Node>());
             //attach the node to adjacent nodes of same color
             //up
+            //There cannot be a peice above the most recently dropped piece
             //down
+            if(emptySpaces[columnIndex] - 1 > 0 && nodes[columnIndex][emptySpaces[columnIndex] - 1].color == "yellow"){
+                Node connectedNode = nodes[columnIndex][emptySpaces[columnIndex] - 1];
+                yellowNodes.get(connectedNode).add(newNode);
+                yellowNodes.get(newNode).add(connectedNode);
+            }
             //left
+            if(columnIndex - 1 >= 0 && nodes[columnIndex - 1][emptySpaces[columnIndex]].color == "yellow"){
+                Node connectedNode = nodes[columnIndex - 1][emptySpaces[columnIndex]];
+                yellowNodes.get(connectedNode).add(newNode);
+                yellowNodes.get(newNode).add(connectedNode);
+            }
             //right
+            if(columnIndex + 1 <  NUM_COLUMNS && nodes[columnIndex + 1][emptySpaces[columnIndex]].color == "yellow"){
+                Node connectedNode = nodes[columnIndex + 1][emptySpaces[columnIndex]];
+                yellowNodes.get(connectedNode).add(newNode);
+                yellowNodes.get(newNode).add(connectedNode);
+            }
             //upleft
+            if(columnIndex - 1 >= 0 && emptySpaces[columnIndex] + 1 < NUM_ROWS &&
+                    nodes[columnIndex - 1][emptySpaces[columnIndex] + 1].color == "yellow"){
+                Node connectedNode = nodes[columnIndex - 1][emptySpaces[columnIndex] + 1];
+                yellowNodes.get(connectedNode).add(newNode);
+                yellowNodes.get(newNode).add(connectedNode);
+            }
             //upright
+            if(columnIndex + 1 < NUM_COLUMNS && emptySpaces[columnIndex] + 1 < NUM_ROWS &&
+                    nodes[columnIndex + 1][emptySpaces[columnIndex] + 1].color == "yellow"){
+                Node connectedNode = nodes[columnIndex + 1][emptySpaces[columnIndex] + 1];
+                yellowNodes.get(connectedNode).add(newNode);
+                yellowNodes.get(newNode).add(connectedNode);
+            }
             //downleft
+            if(columnIndex - 1 >= 0 && emptySpaces[columnIndex] - 1 >= 0 &&
+                    nodes[columnIndex - 1][emptySpaces[columnIndex] - 1].color == "yellow"){
+                Node connectedNode = nodes[columnIndex - 1][emptySpaces[columnIndex] - 1];
+                yellowNodes.get(connectedNode).add(newNode);
+                yellowNodes.get(newNode).add(connectedNode);
+            }
             //downright
-
+            if(columnIndex + 1 < NUM_COLUMNS && emptySpaces[columnIndex] - 1 >= 0 &&
+                    nodes[columnIndex + 1][emptySpaces[columnIndex] - 1].color == "yellow"){
+                Node connectedNode = nodes[columnIndex + 1][emptySpaces[columnIndex] - 1];
+                yellowNodes.get(connectedNode).add(newNode);
+                yellowNodes.get(newNode).add(connectedNode);
+            }
+            emptySpaces[columnIndex]++;
             return true;
         }
 
