@@ -100,10 +100,12 @@ public class Playervsplayer extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
-            connect4.dropRedPattern(pattern, 0);
+            if(!connect4.dropRedPattern(pattern, 0))
+                playerTurn--;
             status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
-            connect4.dropYellowPattern(pattern, 0);
+            if(!connect4.dropYellowPattern(pattern, 0))
+                playerTurn--;
             status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
@@ -124,10 +126,12 @@ public class Playervsplayer extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
-            connect4.dropRedPattern(pattern, 1);
+            if(!connect4.dropRedPattern(pattern, 1))
+                playerTurn--;
             status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
-            connect4.dropYellowPattern(pattern, 1);
+            if(!connect4.dropYellowPattern(pattern, 1))
+                playerTurn--;
             status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
@@ -148,10 +152,12 @@ public class Playervsplayer extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
-            connect4.dropRedPattern(pattern, 2);
+            if(!connect4.dropRedPattern(pattern, 2))
+                playerTurn--;
             status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
-            connect4.dropYellowPattern(pattern, 2);
+            if(!connect4.dropYellowPattern(pattern, 2))
+                playerTurn--;
             status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
@@ -172,10 +178,12 @@ public class Playervsplayer extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
-            connect4.dropRedPattern(pattern, 3);
+            if(!connect4.dropRedPattern(pattern, 3))
+                playerTurn--;
             status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
-            connect4.dropYellowPattern(pattern, 3);
+            if(!connect4.dropYellowPattern(pattern, 3))
+                playerTurn--;
             status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
@@ -196,10 +204,12 @@ public class Playervsplayer extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
-            connect4.dropRedPattern(pattern, 4);
+            if(!connect4.dropRedPattern(pattern, 4))
+                playerTurn--;
             status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
-            connect4.dropYellowPattern(pattern, 4);
+            if(!connect4.dropYellowPattern(pattern, 4))
+                playerTurn--;
             status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
@@ -220,10 +230,12 @@ public class Playervsplayer extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
-            connect4.dropRedPattern(pattern, 5);
+            if(!connect4.dropRedPattern(pattern, 5))
+                playerTurn--;
             status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
-            connect4.dropYellowPattern(pattern, 5);
+            if(!connect4.dropYellowPattern(pattern, 5))
+                playerTurn--;
             status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
@@ -244,10 +256,12 @@ public class Playervsplayer extends AppCompatActivity {
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
-            connect4.dropRedPattern(pattern, 6);
+            if(!connect4.dropRedPattern(pattern, 6))
+                playerTurn--;
             status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
-            connect4.dropYellowPattern(pattern, 6);
+            if(!connect4.dropYellowPattern(pattern, 6))
+                playerTurn--;
             status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
