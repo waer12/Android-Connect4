@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Connect4{
     ArrayList<ImageView> images;
-   public Connect4(ArrayList<ImageView> images){
+    public Connect4(ArrayList<ImageView> images){
         this.images = images;
     }
 
@@ -18,7 +18,7 @@ public class Connect4{
         }
         return f;
     }
-
+    
     public void drawGrid(String[][] f){
         for (int i = 0; i < f.length; i++) {
             for (int j = 0; j < f[i].length; j++) {
