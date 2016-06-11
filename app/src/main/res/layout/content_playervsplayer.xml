@@ -484,7 +484,7 @@
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:id="@+id/reset"
-        android:src="@drawable/reset"
+        android:src="@drawable/resetbutton"
         android:layout_below="@+id/relativeLayout"
         android:layout_centerHorizontal="true" />
 
