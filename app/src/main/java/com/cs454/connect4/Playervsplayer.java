@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
+import android.view.View.OnClickListener;
 
 public class Playervsplayer extends AppCompatActivity {
     Connect4 connect4;
@@ -76,6 +78,234 @@ public class Playervsplayer extends AppCompatActivity {
         connect4 = new Connect4(images);
         pattern = connect4.createPattern();
         emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+
+        addListenerOnButton();
+    }
+
+    private void addListenerOnButton() {
+        ImageButton button0 = (ImageButton) findViewById(R.id.button0);
+        ImageButton button1 = (ImageButton) findViewById(R.id.button1);
+        ImageButton button2 = (ImageButton) findViewById(R.id.button2);
+        ImageButton button3 = (ImageButton) findViewById(R.id.button3);
+        ImageButton button4 = (ImageButton) findViewById(R.id.button4);
+        ImageButton button5 = (ImageButton) findViewById(R.id.button5);
+        ImageButton button6 = (ImageButton) findViewById(R.id.button6);
+        ImageButton reset = (ImageButton) findViewById(R.id.reset);
+
+        button0.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView status = (TextView) findViewById(R.id.status);
+
+                if(playerTurn % 2 == 0){
+                    if(!connect4.dropRedPattern(pattern, 0))
+                        playerTurn--;
+                    status.setText("Drop Yellow Disk at Column (1-7)");
+                }else{
+                    if(!connect4.dropYellowPattern(pattern, 0))
+                        playerTurn--;
+                    status.setText("Drop Red Disk at Column (1-7)");
+                }
+                playerTurn++;
+                connect4.drawGrid(pattern);
+
+                if(connect4.checkWinner(pattern) != null){
+                    if(connect4.checkWinner(pattern) == "R"){
+                        status.setText("Red Player Wins");
+                        disableButtons();
+                    }else if(connect4.checkWinner(pattern) == "Y"){
+                        status.setText("Yellow Player Wins");
+                        disableButtons();
+                    }
+                }
+            }
+        });
+
+        button1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView status = (TextView) findViewById(R.id.status);
+
+                if(playerTurn % 2 == 0){
+                    if(!connect4.dropRedPattern(pattern, 1))
+                        playerTurn--;
+                    status.setText("Drop Yellow Disk at Column (1-7)");
+                }else{
+                    if(!connect4.dropYellowPattern(pattern, 1))
+                        playerTurn--;
+                    status.setText("Drop Red Disk at Column (1-7)");
+                }
+                playerTurn++;
+                connect4.drawGrid(pattern);
+
+                if(connect4.checkWinner(pattern) != null){
+                    if(connect4.checkWinner(pattern) == "R"){
+                        status.setText("Red Player Wins");
+                        disableButtons();
+                    }else if(connect4.checkWinner(pattern) == "Y"){
+                        status.setText("Yellow Player Wins");
+                        disableButtons();
+                    }
+                }
+            }
+        });
+
+        button2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView status = (TextView) findViewById(R.id.status);
+
+                if(playerTurn % 2 == 0){
+                    if(!connect4.dropRedPattern(pattern, 2))
+                        playerTurn--;
+                    status.setText("Drop Yellow Disk at Column (1-7)");
+                }else{
+                    if(!connect4.dropYellowPattern(pattern, 2))
+                        playerTurn--;
+                    status.setText("Drop Red Disk at Column (1-7)");
+                }
+                playerTurn++;
+                connect4.drawGrid(pattern);
+
+                if(connect4.checkWinner(pattern) != null){
+                    if(connect4.checkWinner(pattern) == "R"){
+                        status.setText("Red Player Wins");
+                        disableButtons();
+                    }else if(connect4.checkWinner(pattern) == "Y"){
+                        status.setText("Yellow Player Wins");
+                        disableButtons();
+                    }
+                }
+            }
+        });
+
+        button3.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView status = (TextView) findViewById(R.id.status);
+
+                if(playerTurn % 2 == 0){
+                    if(!connect4.dropRedPattern(pattern, 3))
+                        playerTurn--;
+                    status.setText("Drop Yellow Disk at Column (1-7)");
+                }else{
+                    if(!connect4.dropYellowPattern(pattern, 3))
+                        playerTurn--;
+                    status.setText("Drop Red Disk at Column (1-7)");
+                }
+                playerTurn++;
+                connect4.drawGrid(pattern);
+
+                if(connect4.checkWinner(pattern) != null){
+                    if(connect4.checkWinner(pattern) == "R"){
+                        status.setText("Red Player Wins");
+                        disableButtons();
+                    }else if(connect4.checkWinner(pattern) == "Y"){
+                        status.setText("Yellow Player Wins");
+                        disableButtons();
+                    }
+                }
+            }
+        });
+
+        button4.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView status = (TextView) findViewById(R.id.status);
+
+                if(playerTurn % 2 == 0){
+                    if(!connect4.dropRedPattern(pattern, 4))
+                        playerTurn--;
+                    status.setText("Drop Yellow Disk at Column (1-7)");
+                }else{
+                    if(!connect4.dropYellowPattern(pattern, 4))
+                        playerTurn--;
+                    status.setText("Drop Red Disk at Column (1-7)");
+                }
+                playerTurn++;
+                connect4.drawGrid(pattern);
+
+                if(connect4.checkWinner(pattern) != null){
+                    if(connect4.checkWinner(pattern) == "R"){
+                        status.setText("Red Player Wins");
+                        disableButtons();
+                    }else if(connect4.checkWinner(pattern) == "Y"){
+                        status.setText("Yellow Player Wins");
+                        disableButtons();
+                    }
+                }
+            }
+        });
+
+        button5.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView status = (TextView) findViewById(R.id.status);
+
+                if(playerTurn % 2 == 0){
+                    if(!connect4.dropRedPattern(pattern, 5))
+                        playerTurn--;
+                    status.setText("Drop Yellow Disk at Column (1-7)");
+                }else{
+                    if(!connect4.dropYellowPattern(pattern, 5))
+                        playerTurn--;
+                    status.setText("Drop Red Disk at Column (1-7)");
+                }
+                playerTurn++;
+                connect4.drawGrid(pattern);
+
+                if(connect4.checkWinner(pattern) != null){
+                    if(connect4.checkWinner(pattern) == "R"){
+                        status.setText("Red Player Wins");
+                        disableButtons();
+                    }else if(connect4.checkWinner(pattern) == "Y"){
+                        status.setText("Yellow Player Wins");
+                        disableButtons();
+                    }
+                }
+            }
+        });
+
+        button6.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView status = (TextView) findViewById(R.id.status);
+
+                if (playerTurn % 2 == 0) {
+                    if (!connect4.dropRedPattern(pattern, 6))
+                        playerTurn--;
+                    status.setText("Drop Yellow Disk at Column (1-7)");
+                } else {
+                    if (!connect4.dropYellowPattern(pattern, 6))
+                        playerTurn--;
+                    status.setText("Drop Red Disk at Column (1-7)");
+                }
+                playerTurn++;
+                connect4.drawGrid(pattern);
+
+                if (connect4.checkWinner(pattern) != null) {
+                    if (connect4.checkWinner(pattern) == "R") {
+                        status.setText("Red Player Wins");
+                        disableButtons();
+                    } else if (connect4.checkWinner(pattern) == "Y") {
+                        status.setText("Yellow Player Wins");
+                        disableButtons();
+                    }
+                }
+            }
+        });
+
+        reset.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                playerTurn = 0;
+                connect4.resetGame(pattern);
+                pattern = connect4.createPattern();
+                TextView status = (TextView) findViewById(R.id.status);
+                status.setText("Drop Red Disk at Column (1-7)");
+                enableButtons();
+            }
+        });
     }
 
     public void playConnectFourAgainstComputer(){
@@ -96,205 +326,14 @@ public class Playervsplayer extends AppCompatActivity {
         }
     }
 
-    public void button0(View view){
-        TextView status = (TextView) findViewById(R.id.status);
-
-        if(playerTurn % 2 == 0){
-            if(!connect4.dropRedPattern(pattern, 0))
-                playerTurn--;
-            status.setText("Drop Yellow Disk at Column (1-7)");
-        }else{
-            if(!connect4.dropYellowPattern(pattern, 0))
-                playerTurn--;
-            status.setText("Drop Red Disk at Column (1-7)");
-        }
-        playerTurn++;
-        connect4.drawGrid(pattern);
-
-        if(connect4.checkWinner(pattern) != null){
-            if(connect4.checkWinner(pattern) == "R"){
-                status.setText("Red Player Wins");
-                disableButtons();
-            }else if(connect4.checkWinner(pattern) == "Y"){
-                status.setText("Yellow Player Wins");
-                disableButtons();
-            }
-        }
-    }
-
-    public void button1(View view){
-        TextView status = (TextView) findViewById(R.id.status);
-
-        if(playerTurn % 2 == 0){
-            if(!connect4.dropRedPattern(pattern, 1))
-                playerTurn--;
-            status.setText("Drop Yellow Disk at Column (1-7)");
-        }else{
-            if(!connect4.dropYellowPattern(pattern, 1))
-                playerTurn--;
-            status.setText("Drop Red Disk at Column (1-7)");
-        }
-        playerTurn++;
-        connect4.drawGrid(pattern);
-
-        if(connect4.checkWinner(pattern) != null){
-            if(connect4.checkWinner(pattern) == "R"){
-                status.setText("Red Player Wins");
-                disableButtons();
-            }else if(connect4.checkWinner(pattern) == "Y"){
-                status.setText("Yellow Player Wins");
-                disableButtons();
-            }
-        }
-    }
-
-    public void button2(View view){
-        TextView status = (TextView) findViewById(R.id.status);
-
-        if(playerTurn % 2 == 0){
-            if(!connect4.dropRedPattern(pattern, 2))
-                playerTurn--;
-            status.setText("Drop Yellow Disk at Column (1-7)");
-        }else{
-            if(!connect4.dropYellowPattern(pattern, 2))
-                playerTurn--;
-            status.setText("Drop Red Disk at Column (1-7)");
-        }
-        playerTurn++;
-        connect4.drawGrid(pattern);
-
-        if(connect4.checkWinner(pattern) != null){
-            if(connect4.checkWinner(pattern) == "R"){
-                status.setText("Red Player Wins");
-                disableButtons();
-            }else if(connect4.checkWinner(pattern) == "Y"){
-                status.setText("Yellow Player Wins");
-                disableButtons();
-            }
-        }
-    }
-
-    public void button3(View view){
-        TextView status = (TextView) findViewById(R.id.status);
-
-        if(playerTurn % 2 == 0){
-            if(!connect4.dropRedPattern(pattern, 3))
-                playerTurn--;
-            status.setText("Drop Yellow Disk at Column (1-7)");
-        }else{
-            if(!connect4.dropYellowPattern(pattern, 3))
-                playerTurn--;
-            status.setText("Drop Red Disk at Column (1-7)");
-        }
-        playerTurn++;
-        connect4.drawGrid(pattern);
-
-        if(connect4.checkWinner(pattern) != null){
-            if(connect4.checkWinner(pattern) == "R"){
-                status.setText("Red Player Wins");
-                disableButtons();
-            }else if(connect4.checkWinner(pattern) == "Y"){
-                status.setText("Yellow Player Wins");
-                disableButtons();
-            }
-        }
-    }
-
-    public void button4(View view){
-        TextView status = (TextView) findViewById(R.id.status);
-
-        if(playerTurn % 2 == 0){
-            if(!connect4.dropRedPattern(pattern, 4))
-                playerTurn--;
-            status.setText("Drop Yellow Disk at Column (1-7)");
-        }else{
-            if(!connect4.dropYellowPattern(pattern, 4))
-                playerTurn--;
-            status.setText("Drop Red Disk at Column (1-7)");
-        }
-        playerTurn++;
-        connect4.drawGrid(pattern);
-
-        if(connect4.checkWinner(pattern) != null){
-            if(connect4.checkWinner(pattern) == "R"){
-                status.setText("Red Player Wins");
-                disableButtons();
-            }else if(connect4.checkWinner(pattern) == "Y"){
-                status.setText("Yellow Player Wins");
-                disableButtons();
-            }
-        }
-    }
-
-    public void button5(View view){
-        TextView status = (TextView) findViewById(R.id.status);
-
-        if(playerTurn % 2 == 0){
-            if(!connect4.dropRedPattern(pattern, 5))
-                playerTurn--;
-            status.setText("Drop Yellow Disk at Column (1-7)");
-        }else{
-            if(!connect4.dropYellowPattern(pattern, 5))
-                playerTurn--;
-            status.setText("Drop Red Disk at Column (1-7)");
-        }
-        playerTurn++;
-        connect4.drawGrid(pattern);
-
-        if(connect4.checkWinner(pattern) != null){
-            if(connect4.checkWinner(pattern) == "R"){
-                status.setText("Red Player Wins");
-                disableButtons();
-            }else if(connect4.checkWinner(pattern) == "Y"){
-                status.setText("Yellow Player Wins");
-                disableButtons();
-            }
-        }
-    }
-
-    public void button6(View view){
-        TextView status = (TextView) findViewById(R.id.status);
-
-        if(playerTurn % 2 == 0){
-            if(!connect4.dropRedPattern(pattern, 6))
-                playerTurn--;
-            status.setText("Drop Yellow Disk at Column (1-7)");
-        }else{
-            if(!connect4.dropYellowPattern(pattern, 6))
-                playerTurn--;
-            status.setText("Drop Red Disk at Column (1-7)");
-        }
-        playerTurn++;
-        connect4.drawGrid(pattern);
-
-        if(connect4.checkWinner(pattern) != null){
-            if(connect4.checkWinner(pattern) == "R"){
-                status.setText("Red Player Wins");
-                disableButtons();
-            }else if(connect4.checkWinner(pattern) == "Y"){
-                status.setText("Yellow Player Wins");
-                disableButtons();
-            }
-        }
-    }
-
-    public void reset(View view){
-        playerTurn = 0;
-        pattern = connect4.createPattern();
-        connect4.resetGame(pattern);
-        TextView status = (TextView) findViewById(R.id.status);
-        status.setText("Drop Red Disk at Column (1-7)");
-        enableButtons();
-    }
-
     public void disableButtons(){
-        Button button0 = (Button) findViewById(R.id.col0);
-        Button button1 = (Button) findViewById(R.id.col1);
-        Button button2 = (Button) findViewById(R.id.col2);
-        Button button3 = (Button) findViewById(R.id.col3);
-        Button button4 = (Button) findViewById(R.id.col4);
-        Button button5 = (Button) findViewById(R.id.col5);
-        Button button6 = (Button) findViewById(R.id.col6);
+        ImageButton button0 = (ImageButton) findViewById(R.id.button0);
+        ImageButton button1 = (ImageButton) findViewById(R.id.button1);
+        ImageButton button2 = (ImageButton) findViewById(R.id.button2);
+        ImageButton button3 = (ImageButton) findViewById(R.id.button3);
+        ImageButton button4 = (ImageButton) findViewById(R.id.button4);
+        ImageButton button5 = (ImageButton) findViewById(R.id.button5);
+        ImageButton button6 = (ImageButton) findViewById(R.id.button6);
 
         button0.setEnabled(false);
         button1.setEnabled(false);
@@ -307,13 +346,13 @@ public class Playervsplayer extends AppCompatActivity {
     }
 
     public void enableButtons(){
-        Button button0 = (Button) findViewById(R.id.col0);
-        Button button1 = (Button) findViewById(R.id.col1);
-        Button button2 = (Button) findViewById(R.id.col2);
-        Button button3 = (Button) findViewById(R.id.col3);
-        Button button4 = (Button) findViewById(R.id.col4);
-        Button button5 = (Button) findViewById(R.id.col5);
-        Button button6 = (Button) findViewById(R.id.col6);
+        ImageButton button0 = (ImageButton) findViewById(R.id.button0);
+        ImageButton button1 = (ImageButton) findViewById(R.id.button1);
+        ImageButton button2 = (ImageButton) findViewById(R.id.button2);
+        ImageButton button3 = (ImageButton) findViewById(R.id.button3);
+        ImageButton button4 = (ImageButton) findViewById(R.id.button4);
+        ImageButton button5 = (ImageButton) findViewById(R.id.button5);
+        ImageButton button6 = (ImageButton) findViewById(R.id.button6);
 
         button0.setEnabled(true);
         button1.setEnabled(true);

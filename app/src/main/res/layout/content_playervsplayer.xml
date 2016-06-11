@@ -13,91 +13,84 @@
     tools:showIn="@layout/activity_playervsplayer">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relativeLayout"
-        android:layout_marginTop="29dp"
         android:layout_below="@+id/tableLayout"
         android:layout_centerHorizontal="true">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="1"
-            android:id="@+id/col0"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/button0"
+            android:src="@drawable/poke1"
+            android:layout_marginStart="53dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:onClick="button0" />
+            android:layout_alignParentStart="true" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="2"
-            android:id="@+id/col1"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/button1"
+            android:src="@drawable/poke2"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/col0"
-            android:onClick="button1" />
+            android:layout_toEndOf="@+id/button0" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="3"
-            android:id="@+id/col2"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/button2"
+            android:src="@drawable/poke3"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/col1"
-            android:onClick="button2" />
+            android:layout_toEndOf="@+id/button1" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="4"
-            android:id="@+id/col3"
-            android:layout_alignBottom="@+id/col2"
-            android:layout_toEndOf="@+id/col2"
-            android:onClick="button3" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5"
-            android:id="@+id/col4"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/button3"
+            android:src="@drawable/poke4"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/col3"
-            android:onClick="button4" />
+            android:layout_toEndOf="@+id/button2" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="6"
-            android:id="@+id/col5"
-            android:layout_alignBottom="@+id/col4"
-            android:layout_toEndOf="@+id/col4"
-            android:onClick="button5" />
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/button4"
+            android:src="@drawable/poke5"
+            android:layout_marginStart="32dp"
+            android:layout_below="@+id/button0"
+            android:layout_alignStart="@+id/button0" />
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="7"
-            android:id="@+id/col6"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/col5"
-            android:onClick="button6" />
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/button5"
+            android:layout_alignBottom="@+id/button4"
+            android:layout_toEndOf="@+id/button4"
+            android:src="@drawable/poke6" />
 
-        <Button
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="Reset"
-            android:id="@+id/reset"
-            android:layout_below="@+id/col2"
-            android:layout_centerHorizontal="true"
-            android:onClick="reset" />
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/button6"
+            android:layout_alignBottom="@+id/button5"
+            android:layout_toEndOf="@+id/button5"
+            android:src="@drawable/poke7" />
+
     </RelativeLayout>
 
     <TextView
@@ -484,5 +477,15 @@
         </TableRow>
 
     </TableLayout>
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:id="@+id/reset"
+        android:src="@drawable/reset"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

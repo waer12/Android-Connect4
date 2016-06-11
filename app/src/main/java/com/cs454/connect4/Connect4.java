@@ -51,6 +51,7 @@ public class Connect4{
                 images.get(index).setImageResource(R.drawable.white);
             }
         }
+        board = new Graph();
     }
 
     public boolean dropRedPattern(String[][] f, int column){
