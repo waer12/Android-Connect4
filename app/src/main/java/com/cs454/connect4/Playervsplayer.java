@@ -101,10 +101,10 @@ public class Playervsplayer extends AppCompatActivity {
 
         if(playerTurn % 2 == 0){
             connect4.dropRedPattern(pattern, 0);
-            status.setText("Drop Yellow Disk at Column (0-6)");
+            status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
             connect4.dropYellowPattern(pattern, 0);
-            status.setText("Drop Red Disk at Column (0-6)");
+            status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
         connect4.drawGrid(pattern);
@@ -125,10 +125,10 @@ public class Playervsplayer extends AppCompatActivity {
 
         if(playerTurn % 2 == 0){
             connect4.dropRedPattern(pattern, 1);
-            status.setText("Drop Yellow Disk at Column (0-6)");
+            status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
             connect4.dropYellowPattern(pattern, 1);
-            status.setText("Drop Red Disk at Column (0-6)");
+            status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
         connect4.drawGrid(pattern);
@@ -149,10 +149,10 @@ public class Playervsplayer extends AppCompatActivity {
 
         if(playerTurn % 2 == 0){
             connect4.dropRedPattern(pattern, 2);
-            status.setText("Drop Yellow Disk at Column (0-6)");
+            status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
             connect4.dropYellowPattern(pattern, 2);
-            status.setText("Drop Red Disk at Column (0-6)");
+            status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
         connect4.drawGrid(pattern);
@@ -173,10 +173,10 @@ public class Playervsplayer extends AppCompatActivity {
 
         if(playerTurn % 2 == 0){
             connect4.dropRedPattern(pattern, 3);
-            status.setText("Drop Yellow Disk at Column (0-6)");
+            status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
             connect4.dropYellowPattern(pattern, 3);
-            status.setText("Drop Red Disk at Column (0-6)");
+            status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
         connect4.drawGrid(pattern);
@@ -197,10 +197,10 @@ public class Playervsplayer extends AppCompatActivity {
 
         if(playerTurn % 2 == 0){
             connect4.dropRedPattern(pattern, 4);
-            status.setText("Drop Yellow Disk at Column (0-6)");
+            status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
             connect4.dropYellowPattern(pattern, 4);
-            status.setText("Drop Red Disk at Column (0-6)");
+            status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
         connect4.drawGrid(pattern);
@@ -221,10 +221,10 @@ public class Playervsplayer extends AppCompatActivity {
 
         if(playerTurn % 2 == 0){
             connect4.dropRedPattern(pattern, 5);
-            status.setText("Drop Yellow Disk at Column (0-6)");
+            status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
             connect4.dropYellowPattern(pattern, 5);
-            status.setText("Drop Red Disk at Column (0-6)");
+            status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
         connect4.drawGrid(pattern);
@@ -245,10 +245,10 @@ public class Playervsplayer extends AppCompatActivity {
 
         if(playerTurn % 2 == 0){
             connect4.dropRedPattern(pattern, 6);
-            status.setText("Drop Yellow Disk at Column (0-6)");
+            status.setText("Drop Yellow Disk at Column (1-7)");
         }else{
             connect4.dropYellowPattern(pattern, 6);
-            status.setText("Drop Red Disk at Column (0-6)");
+            status.setText("Drop Red Disk at Column (1-7)");
         }
         playerTurn++;
         connect4.drawGrid(pattern);
@@ -269,7 +269,7 @@ public class Playervsplayer extends AppCompatActivity {
         pattern = connect4.createPattern();
         connect4.resetGame(pattern);
         TextView status = (TextView) findViewById(R.id.status);
-        status.setText("Drop Red Disk at Column (0-6)");
+        status.setText("Drop Red Disk at Column (1-7)");
         enableButtons();
     }
 
