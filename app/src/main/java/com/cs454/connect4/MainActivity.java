@@ -1,8 +1,6 @@
 package com.cs454.connect4;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -12,14 +10,23 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     Connect4 connect4;
     String[][] pattern;
     ArrayList<Point> emptySpaces = new ArrayList<>();
-    boolean gameOver = false;
-    int playerTurn = 0;
+    int playerTurn = 0;//ODD Turn is USER; EVEN turn is COMPUTER;
+    boolean playComputer = true;
+
+    //Buttons
+    Button button0;
+    Button button1;
+    Button button2;
+    Button button3;
+    Button button4;
+    Button button5;
+    Button button6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +36,25 @@ public class MainActivity extends AppCompatActivity {
 
         connect4 = new Connect4();
         pattern = connect4.createPattern();
-        emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+        emptySpaces = connect4.getAvailableSpaces(pattern);
 
         String drawnPattern = connect4.printPattern(pattern);
         TextView grid = (TextView) findViewById(R.id.gameGrid);
         grid.setText(drawnPattern);
+
+        //Buttons
+        Button button0 = (Button) findViewById(R.id.col0);
+        Button button1 = (Button) findViewById(R.id.col1);
+        Button button2 = (Button) findViewById(R.id.col2);
+        Button button3 = (Button) findViewById(R.id.col3);
+        Button button4 = (Button) findViewById(R.id.col4);
+        Button button5 = (Button) findViewById(R.id.col5);
+        Button button6 = (Button) findViewById(R.id.col6);
+
+        if(playComputer)
+        {
+            connect4.playConnectFourAgainstComputer(pattern, playerTurn);
+        }
     }
 
     @Override
@@ -58,24 +79,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void playConnectFourAgainstComputer()
-    {
-        Random random = new Random();
-
-        playerTurn = random.nextInt(3);
-        int gameColumn;
-
-        if(playerTurn == 2)//Computer goes first
-        {
-            Point point = new Point(random.nextInt(connect4.getRowAmount()), random.nextInt(connect4.getColumnAmount()));
-            gameColumn = point.y;
-        }
-
-        while(!gameOver)
-        {
-
-        }
-    }
 
     public void button0(View view){
         TextView grid = (TextView) findViewById(R.id.gameGrid);
@@ -271,14 +274,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void disableButtons(){
-        Button button0 = (Button) findViewById(R.id.col0);
-        Button button1 = (Button) findViewById(R.id.col1);
-        Button button2 = (Button) findViewById(R.id.col2);
-        Button button3 = (Button) findViewById(R.id.col3);
-        Button button4 = (Button) findViewById(R.id.col4);
-        Button button5 = (Button) findViewById(R.id.col5);
-        Button button6 = (Button) findViewById(R.id.col6);
-
         button0.setEnabled(false);
         button1.setEnabled(false);
         button2.setEnabled(false);
@@ -286,18 +281,9 @@ public class MainActivity extends AppCompatActivity {
         button4.setEnabled(false);
         button5.setEnabled(false);
         button6.setEnabled(false);
-
     }
 
     public void enableButtons(){
-        Button button0 = (Button) findViewById(R.id.col0);
-        Button button1 = (Button) findViewById(R.id.col1);
-        Button button2 = (Button) findViewById(R.id.col2);
-        Button button3 = (Button) findViewById(R.id.col3);
-        Button button4 = (Button) findViewById(R.id.col4);
-        Button button5 = (Button) findViewById(R.id.col5);
-        Button button6 = (Button) findViewById(R.id.col6);
-
         button0.setEnabled(true);
         button1.setEnabled(true);
         button2.setEnabled(true);
@@ -305,6 +291,5 @@ public class MainActivity extends AppCompatActivity {
         button4.setEnabled(true);
         button5.setEnabled(true);
         button6.setEnabled(true);
-
     }
 }
