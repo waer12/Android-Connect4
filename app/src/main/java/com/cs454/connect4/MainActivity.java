@@ -1,14 +1,13 @@
 package com.cs454.connect4;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Point> emptySpaces = new ArrayList<>();
     boolean gameOver = false;
     int playerTurn = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +27,58 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        connect4 = new Connect4();
+        ArrayList<ImageView> images = new ArrayList<>();
+        images.add((ImageView) findViewById(R.id.disk1));
+        images.add((ImageView) findViewById(R.id.disk2));
+        images.add((ImageView) findViewById(R.id.disk3));
+        images.add((ImageView) findViewById(R.id.disk4));
+        images.add((ImageView) findViewById(R.id.disk5));
+        images.add((ImageView) findViewById(R.id.disk6));
+        images.add((ImageView) findViewById(R.id.disk7));
+
+        images.add((ImageView) findViewById(R.id.disk8));
+        images.add((ImageView) findViewById(R.id.disk9));
+        images.add((ImageView) findViewById(R.id.disk10));
+        images.add((ImageView) findViewById(R.id.disk11));
+        images.add((ImageView) findViewById(R.id.disk12));
+        images.add((ImageView) findViewById(R.id.disk13));
+        images.add((ImageView) findViewById(R.id.disk14));
+
+        images.add((ImageView) findViewById(R.id.disk15));
+        images.add((ImageView) findViewById(R.id.disk16));
+        images.add((ImageView) findViewById(R.id.disk17));
+        images.add((ImageView) findViewById(R.id.disk18));
+        images.add((ImageView) findViewById(R.id.disk19));
+        images.add((ImageView) findViewById(R.id.disk20));
+        images.add((ImageView) findViewById(R.id.disk21));
+
+        images.add((ImageView) findViewById(R.id.disk22));
+        images.add((ImageView) findViewById(R.id.disk23));
+        images.add((ImageView) findViewById(R.id.disk24));
+        images.add((ImageView) findViewById(R.id.disk25));
+        images.add((ImageView) findViewById(R.id.disk26));
+        images.add((ImageView) findViewById(R.id.disk27));
+        images.add((ImageView) findViewById(R.id.disk28));
+
+        images.add((ImageView) findViewById(R.id.disk29));
+        images.add((ImageView) findViewById(R.id.disk30));
+        images.add((ImageView) findViewById(R.id.disk31));
+        images.add((ImageView) findViewById(R.id.disk32));
+        images.add((ImageView) findViewById(R.id.disk33));
+        images.add((ImageView) findViewById(R.id.disk34));
+        images.add((ImageView) findViewById(R.id.disk35));
+
+        images.add((ImageView) findViewById(R.id.disk36));
+        images.add((ImageView) findViewById(R.id.disk37));
+        images.add((ImageView) findViewById(R.id.disk38));
+        images.add((ImageView) findViewById(R.id.disk39));
+        images.add((ImageView) findViewById(R.id.disk40));
+        images.add((ImageView) findViewById(R.id.disk41));
+        images.add((ImageView) findViewById(R.id.disk42));
+
+        connect4 = new Connect4(images);
         pattern = connect4.createPattern();
         emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
-
-        String drawnPattern = connect4.printPattern(pattern);
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
-        grid.setText(drawnPattern);
     }
 
     @Override
@@ -58,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void playConnectFourAgainstComputer()
-    {
+    public void playConnectFourAgainstComputer(){
         Random random = new Random();
 
         playerTurn = random.nextInt(3);
@@ -78,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button0(View view){
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
@@ -89,8 +132,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText("Drop Red Disk at Column (0-6)");
         }
         playerTurn++;
-        String newPattern = connect4.printPattern(pattern);
-        grid.setText(newPattern);
+        connect4.drawGrid(pattern);
 
         if(connect4.checkWinner(pattern) != null){
             if(connect4.checkWinner(pattern) == "R"){
@@ -104,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button1(View view){
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
@@ -115,8 +156,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText("Drop Red Disk at Column (0-6)");
         }
         playerTurn++;
-        String newPattern = connect4.printPattern(pattern);
-        grid.setText(newPattern);
+        connect4.drawGrid(pattern);
 
         if(connect4.checkWinner(pattern) != null){
             if(connect4.checkWinner(pattern) == "R"){
@@ -130,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button2(View view){
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
@@ -141,8 +180,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText("Drop Red Disk at Column (0-6)");
         }
         playerTurn++;
-        String newPattern = connect4.printPattern(pattern);
-        grid.setText(newPattern);
+        connect4.drawGrid(pattern);
 
         if(connect4.checkWinner(pattern) != null){
             if(connect4.checkWinner(pattern) == "R"){
@@ -156,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button3(View view){
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
@@ -167,8 +204,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText("Drop Red Disk at Column (0-6)");
         }
         playerTurn++;
-        String newPattern = connect4.printPattern(pattern);
-        grid.setText(newPattern);
+        connect4.drawGrid(pattern);
 
         if(connect4.checkWinner(pattern) != null){
             if(connect4.checkWinner(pattern) == "R"){
@@ -182,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button4(View view){
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
@@ -193,8 +228,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText("Drop Red Disk at Column (0-6)");
         }
         playerTurn++;
-        String newPattern = connect4.printPattern(pattern);
-        grid.setText(newPattern);
+        connect4.drawGrid(pattern);
 
         if(connect4.checkWinner(pattern) != null){
             if(connect4.checkWinner(pattern) == "R"){
@@ -208,7 +242,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button5(View view){
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
@@ -219,8 +252,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText("Drop Red Disk at Column (0-6)");
         }
         playerTurn++;
-        String newPattern = connect4.printPattern(pattern);
-        grid.setText(newPattern);
+        connect4.drawGrid(pattern);
 
         if(connect4.checkWinner(pattern) != null){
             if(connect4.checkWinner(pattern) == "R"){
@@ -234,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void button6(View view){
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
         TextView status = (TextView) findViewById(R.id.status);
 
         if(playerTurn % 2 == 0){
@@ -245,8 +276,7 @@ public class MainActivity extends AppCompatActivity {
             status.setText("Drop Red Disk at Column (0-6)");
         }
         playerTurn++;
-        String newPattern = connect4.printPattern(pattern);
-        grid.setText(newPattern);
+        connect4.drawGrid(pattern);
 
         if(connect4.checkWinner(pattern) != null){
             if(connect4.checkWinner(pattern) == "R"){
@@ -262,9 +292,7 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View view){
         playerTurn = 0;
         pattern = connect4.createPattern();
-        String drawnPattern = connect4.printPattern(pattern);
-        TextView grid = (TextView) findViewById(R.id.gameGrid);
-        grid.setText(drawnPattern);
+        connect4.resetGame(pattern);
         TextView status = (TextView) findViewById(R.id.status);
         status.setText("Drop Red Disk at Column (0-6)");
         enableButtons();
