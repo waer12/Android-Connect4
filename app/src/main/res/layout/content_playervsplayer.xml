@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.cs454.connect4.Playervsplayer"
+    tools:showIn="@layout/activity_playervsplayer">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/tableLayout"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@+id/col0"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:onClick="button0" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:id="@+id/col1"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/col0"
+            android:onClick="button1" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:id="@+id/col2"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/col1"
+            android:onClick="button2" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:id="@+id/col3"
+            android:layout_alignBottom="@+id/col2"
+            android:layout_toEndOf="@+id/col2"
+            android:onClick="button3" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:id="@+id/col4"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/col3"
+            android:onClick="button4" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:id="@+id/col5"
+            android:layout_alignBottom="@+id/col4"
+            android:layout_toEndOf="@+id/col4"
+            android:onClick="button5" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:id="@+id/col6"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/col5"
+            android:onClick="button6" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:id="@+id/reset"
+            android:layout_below="@+id/col2"
+            android:layout_centerHorizontal="true"
+            android:onClick="reset" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Drop Red Disk at Column (0-6)"
+        android:id="@+id/status"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableLayout"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/status"
+        android:layout_centerHorizontal="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk1"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk2"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk3"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk4"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk5"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk6"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk7"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk8"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk9"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk10"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk11"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk12"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk13"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk14"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk15"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk16"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk17"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk18"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk19"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk20"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk21"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk22"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk23"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk24"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk25"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk26"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk27"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk28"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk29"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk30"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk31"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk32"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk33"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk34"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk35"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk36"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk37"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk38"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk39"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk40"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk41"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/disk42"
+                android:src="@drawable/white"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>
