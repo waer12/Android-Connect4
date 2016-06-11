@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         addListenerOnButton();
+        playComputerListenerButton();
     }
 
     @Override
@@ -54,5 +55,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton pvc = (ImageButton) findViewById(R.id.pvcButton);
+        final Intent computerIntent = new Intent(this, PlayervsComputer.class);
+        pvc.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(computerIntent);
+            }
+        });
+    }
+
+    public void playComputerListenerButton()
+    {
+        ImageButton pvc = (ImageButton) findViewById(R.id.pvcButton);
+        final Intent intent = new Intent(this, PlayervsComputer.class);
+        pvc.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(intent);
+            }
+        });
     }
 }

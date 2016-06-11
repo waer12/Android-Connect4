@@ -3,16 +3,18 @@ package com.cs454.connect4;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import java.util.ArrayList;
-import java.util.Random;
-import android.view.View.OnClickListener;
 
-public class Playervsplayer extends AppCompatActivity {
+import java.util.ArrayList;
+
+/**
+ * Created by Kiara on 6/11/2016.
+ */
+public class PlayervsComputer extends AppCompatActivity {
     Connect4 connect4;
     String[][] pattern;
     ArrayList<Point> emptySpaces = new ArrayList<>();
@@ -92,7 +94,9 @@ public class Playervsplayer extends AppCompatActivity {
         ImageButton button6 = (ImageButton) findViewById(R.id.button6);
         ImageButton reset = (ImageButton) findViewById(R.id.reset);
 
-        button0.setOnClickListener(new OnClickListener() {
+        int computerChoice = -1;
+
+        button0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView status = (TextView) findViewById(R.id.status);
@@ -100,7 +104,10 @@ public class Playervsplayer extends AppCompatActivity {
                 if(playerTurn % 2 == 0){
                     if(!connect4.dropRedPattern(pattern, 0))
                         playerTurn--;
-                    status.setText("Drop Yellow Disk at Column (1-7)");
+                    status.setText("Computer playing...");
+                    emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+                    ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+                    int computerChoice = connect4.minimax(0, 2, pattern);
                 }else{
                     if(!connect4.dropYellowPattern(pattern, 0))
                         playerTurn--;
@@ -109,19 +116,19 @@ public class Playervsplayer extends AppCompatActivity {
                 playerTurn++;
                 connect4.drawGrid(pattern);
 
-                if(connect4.checkWinner(pattern) != null){
-                    if(connect4.checkWinner(pattern) == "R"){
-                        status.setText("Red Player Wins");
+                if (connect4.checkWinner(pattern) != null) {
+                    if (connect4.checkWinner(pattern) == "R") {
+                        status.setText("User Wins");
                         disableButtons();
-                    }else if(connect4.checkWinner(pattern) == "Y"){
-                        status.setText("Yellow Player Wins");
+                    } else if (connect4.checkWinner(pattern) == "Y") {
+                        status.setText("Computer Wins");
                         disableButtons();
                     }
                 }
             }
         });
 
-        button1.setOnClickListener(new OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView status = (TextView) findViewById(R.id.status);
@@ -129,7 +136,10 @@ public class Playervsplayer extends AppCompatActivity {
                 if(playerTurn % 2 == 0){
                     if(!connect4.dropRedPattern(pattern, 1))
                         playerTurn--;
-                    status.setText("Drop Yellow Disk at Column (1-7)");
+                    status.setText("Computer playing...");
+                    emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+                    ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+                    int computerChoice = connect4.minimax(0, 2, pattern);
                 }else{
                     if(!connect4.dropYellowPattern(pattern, 1))
                         playerTurn--;
@@ -138,19 +148,19 @@ public class Playervsplayer extends AppCompatActivity {
                 playerTurn++;
                 connect4.drawGrid(pattern);
 
-                if(connect4.checkWinner(pattern) != null){
-                    if(connect4.checkWinner(pattern) == "R"){
-                        status.setText("Red Player Wins");
+                if (connect4.checkWinner(pattern) != null) {
+                    if (connect4.checkWinner(pattern) == "R") {
+                        status.setText("User Wins");
                         disableButtons();
-                    }else if(connect4.checkWinner(pattern) == "Y"){
-                        status.setText("Yellow Player Wins");
+                    } else if (connect4.checkWinner(pattern) == "Y") {
+                        status.setText("Computer Wins");
                         disableButtons();
                     }
                 }
             }
         });
 
-        button2.setOnClickListener(new OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView status = (TextView) findViewById(R.id.status);
@@ -158,7 +168,10 @@ public class Playervsplayer extends AppCompatActivity {
                 if(playerTurn % 2 == 0){
                     if(!connect4.dropRedPattern(pattern, 2))
                         playerTurn--;
-                    status.setText("Drop Yellow Disk at Column (1-7)");
+                    status.setText("Computer playing...");
+                    emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+                    ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+                    int computerChoice = connect4.minimax(0, 2, pattern);
                 }else{
                     if(!connect4.dropYellowPattern(pattern, 2))
                         playerTurn--;
@@ -167,19 +180,19 @@ public class Playervsplayer extends AppCompatActivity {
                 playerTurn++;
                 connect4.drawGrid(pattern);
 
-                if(connect4.checkWinner(pattern) != null){
-                    if(connect4.checkWinner(pattern) == "R"){
-                        status.setText("Red Player Wins");
+                if (connect4.checkWinner(pattern) != null) {
+                    if (connect4.checkWinner(pattern) == "R") {
+                        status.setText("User Wins");
                         disableButtons();
-                    }else if(connect4.checkWinner(pattern) == "Y"){
-                        status.setText("Yellow Player Wins");
+                    } else if (connect4.checkWinner(pattern) == "Y") {
+                        status.setText("Computer Wins");
                         disableButtons();
                     }
                 }
             }
         });
 
-        button3.setOnClickListener(new OnClickListener() {
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView status = (TextView) findViewById(R.id.status);
@@ -187,7 +200,10 @@ public class Playervsplayer extends AppCompatActivity {
                 if(playerTurn % 2 == 0){
                     if(!connect4.dropRedPattern(pattern, 3))
                         playerTurn--;
-                    status.setText("Drop Yellow Disk at Column (1-7)");
+                    status.setText("Computer playing...");
+                    emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+                    ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+                    int computerChoice = connect4.minimax(0, 2, pattern);
                 }else{
                     if(!connect4.dropYellowPattern(pattern, 3))
                         playerTurn--;
@@ -196,19 +212,19 @@ public class Playervsplayer extends AppCompatActivity {
                 playerTurn++;
                 connect4.drawGrid(pattern);
 
-                if(connect4.checkWinner(pattern) != null){
-                    if(connect4.checkWinner(pattern) == "R"){
-                        status.setText("Red Player Wins");
+                if (connect4.checkWinner(pattern) != null) {
+                    if (connect4.checkWinner(pattern) == "R") {
+                        status.setText("User Wins");
                         disableButtons();
-                    }else if(connect4.checkWinner(pattern) == "Y"){
-                        status.setText("Yellow Player Wins");
+                    } else if (connect4.checkWinner(pattern) == "Y") {
+                        status.setText("Computer Wins");
                         disableButtons();
                     }
                 }
             }
         });
 
-        button4.setOnClickListener(new OnClickListener() {
+        button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView status = (TextView) findViewById(R.id.status);
@@ -216,7 +232,10 @@ public class Playervsplayer extends AppCompatActivity {
                 if(playerTurn % 2 == 0){
                     if(!connect4.dropRedPattern(pattern, 4))
                         playerTurn--;
-                    status.setText("Drop Yellow Disk at Column (1-7)");
+                    status.setText("Computer playing...");
+                    emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+                    ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+                    int computerChoice = connect4.minimax(0, 2, pattern);
                 }else{
                     if(!connect4.dropYellowPattern(pattern, 4))
                         playerTurn--;
@@ -225,19 +244,19 @@ public class Playervsplayer extends AppCompatActivity {
                 playerTurn++;
                 connect4.drawGrid(pattern);
 
-                if(connect4.checkWinner(pattern) != null){
-                    if(connect4.checkWinner(pattern) == "R"){
-                        status.setText("Red Player Wins");
+                if (connect4.checkWinner(pattern) != null) {
+                    if (connect4.checkWinner(pattern) == "R") {
+                        status.setText("User Wins");
                         disableButtons();
-                    }else if(connect4.checkWinner(pattern) == "Y"){
-                        status.setText("Yellow Player Wins");
+                    } else if (connect4.checkWinner(pattern) == "Y") {
+                        status.setText("Computer Wins");
                         disableButtons();
                     }
                 }
             }
         });
 
-        button5.setOnClickListener(new OnClickListener() {
+        button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView status = (TextView) findViewById(R.id.status);
@@ -245,7 +264,10 @@ public class Playervsplayer extends AppCompatActivity {
                 if(playerTurn % 2 == 0){
                     if(!connect4.dropRedPattern(pattern, 5))
                         playerTurn--;
-                    status.setText("Drop Yellow Disk at Column (1-7)");
+                    status.setText("Computer playing...");
+                    emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+                    ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+                    int computerChoice = connect4.minimax(0, 2, pattern);
                 }else{
                     if(!connect4.dropYellowPattern(pattern, 5))
                         playerTurn--;
@@ -254,19 +276,19 @@ public class Playervsplayer extends AppCompatActivity {
                 playerTurn++;
                 connect4.drawGrid(pattern);
 
-                if(connect4.checkWinner(pattern) != null){
-                    if(connect4.checkWinner(pattern) == "R"){
-                        status.setText("Red Player Wins");
+                if (connect4.checkWinner(pattern) != null) {
+                    if (connect4.checkWinner(pattern) == "R") {
+                        status.setText("User Wins");
                         disableButtons();
-                    }else if(connect4.checkWinner(pattern) == "Y"){
-                        status.setText("Yellow Player Wins");
+                    } else if (connect4.checkWinner(pattern) == "Y") {
+                        status.setText("Computer Wins");
                         disableButtons();
                     }
                 }
             }
         });
 
-        button6.setOnClickListener(new OnClickListener() {
+        button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView status = (TextView) findViewById(R.id.status);
@@ -274,7 +296,10 @@ public class Playervsplayer extends AppCompatActivity {
                 if (playerTurn % 2 == 0) {
                     if (!connect4.dropRedPattern(pattern, 6))
                         playerTurn--;
-                    status.setText("Drop Yellow Disk at Column (1-7)");
+                    status.setText("Computer playing...");
+                    emptySpaces = connect4.checkAmountOfAvailableSpaces(pattern);
+                    ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+                    int computerChoice = connect4.minimax(0, 2, pattern);
                 } else {
                     if (!connect4.dropYellowPattern(pattern, 6))
                         playerTurn--;
@@ -285,17 +310,17 @@ public class Playervsplayer extends AppCompatActivity {
 
                 if (connect4.checkWinner(pattern) != null) {
                     if (connect4.checkWinner(pattern) == "R") {
-                        status.setText("Red Player Wins");
+                        status.setText("User Wins");
                         disableButtons();
                     } else if (connect4.checkWinner(pattern) == "Y") {
-                        status.setText("Yellow Player Wins");
+                        status.setText("Computer Wins");
                         disableButtons();
                     }
                 }
             }
         });
 
-        reset.setOnClickListener(new OnClickListener() {
+        reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 playerTurn = 0;
@@ -306,6 +331,53 @@ public class Playervsplayer extends AppCompatActivity {
                 enableButtons();
             }
         });
+
+        switch(computerChoice)
+        {
+            case 0:
+                button0.performClick();
+                break;
+            case 1:
+                button1.performClick();
+                break;
+            case 2:
+                button2.performClick();
+                break;
+            case 3:
+                button3.performClick();
+                break;
+            case 4:
+                button4.performClick();
+                break;
+            case 5:
+                button5.performClick();
+                break;
+            case 6:
+                button6.performClick();
+                break;
+            default:
+                Log.d("PvC","Invalid Computer choice! -> " + computerChoice);
+        }
+    }
+
+    public int computerPlay()
+    {
+        int chosenColumn = -1;
+        ArrayList<Point> availableSpaces = connect4.getAvailableSpaces(pattern);
+        ArrayList<PointsandMinimaxScores> rootChildrenScores = new ArrayList<>();
+        connect4.minimax(0, 2, pattern);
+        playerTurn++; //To user turn
+        return chosenColumn;
+    }
+
+    public boolean checkIfGameOver(String[][] board)
+    {
+        ArrayList<Point> availableSpaces = connect4.getAvailableSpaces(board);
+        if(connect4.computerWin(board) || connect4.userWin(board) || availableSpaces.isEmpty())
+        {
+            return true;
+        }
+        return false;
     }
 
     public void disableButtons(){
@@ -345,5 +417,4 @@ public class Playervsplayer extends AppCompatActivity {
         button6.setEnabled(true);
 
     }
-
 }

@@ -19,8 +19,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Playervsplayer"
-            android:label="@string/title_activity_playervsplayer"
+        android:name=".Playervsplayer"
+        android:label="@string/title_activity_playervsplayer"
+        android:parentActivityName=".MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.cs454.connect4.MainActivity" />
+    </activity>
+        <activity
+            android:name=".PlayervsComputer"
+            android:label="@string/title_activity_playervscomputer"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
