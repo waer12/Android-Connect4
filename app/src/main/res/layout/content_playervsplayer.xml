@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tableLayout"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="36dp"
         android:layout_below="@+id/status"
         android:layout_centerHorizontal="true">
 
@@ -509,5 +509,15 @@
         android:layout_below="@+id/relativeLayout2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="  1     2     3     4     5     6     7"
+        android:id="@+id/textView"
+        android:layout_below="@+id/status"
+        android:layout_alignStart="@+id/tableLayout"
+        android:layout_margin="5dp" />
 
 </RelativeLayout>
